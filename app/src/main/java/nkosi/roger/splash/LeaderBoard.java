@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -61,7 +62,7 @@ public class LeaderBoard extends ListActivity {
     //ids
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
-    private static final String TAG_GET = "data";
+    private static final String TAG_GET = "leaderboard";
     private static final String USER_NAME = "name";
     private static final String PROGRESS = "progress";
     private static final String TAG_BALANCE = "Balance";
@@ -82,9 +83,6 @@ public class LeaderBoard extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leader_board);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         rank_txt = (TextView)findViewById(R.id.ld_Ranks);
         Typeface custom_ldRank =Typeface.createFromAsset(getAssets(),"fonts/CHUBBY.TTF");
@@ -123,12 +121,12 @@ public class LeaderBoard extends ListActivity {
 
 
 
-        leaderboard_listView = (ListView)findViewById(R.id.leaderboard_lstview);
+        //leaderboard_listView = (ListView)findViewById(R.id.leaderboard_lstview);
 
         //new instance of the object declared for the data resources
-        myCustomAdapterLeaderB myAdapter_lstView_leaderB = new myCustomAdapterLeaderB(this,rank_number_LeaderBoard,img_player_LeaderBoard,name_player_leaderboard,time_player_leaderboard);
+       // myCustomAdapterLeaderB myAdapter_lstView_leaderB = new myCustomAdapterLeaderB(this,rank_number_LeaderBoard,img_player_LeaderBoard,name_player_leaderboard,time_player_leaderboard);
 
-        leaderboard_listView.setAdapter(myAdapter_lstView_leaderB);
+        //leaderboard_listView.setAdapter(myAdapter_lstView_leaderB);
 
     }
 
@@ -152,7 +150,7 @@ public class LeaderBoard extends ListActivity {
         // TODO Auto-generated method stub
         super.onResume();
         //loading the bank statement via AsyncTask
-        new GetLeaderBoard().execute();
+        new getLeaderBoard().execute();
 
     }
 
@@ -210,7 +208,7 @@ public class LeaderBoard extends ListActivity {
 
     }
 
-    public void updatList(){
+    public void updateList(){
         // For a ListActivity we need to set the List Adapter, and in order to do
         //that, we need to create a ListAdapter.  This SimpleAdapter,
         //will utilize our updated Hashmapped ArrayList,
@@ -236,6 +234,32 @@ public class LeaderBoard extends ListActivity {
 
             }
         });
+    }
+
+    public class getLeaderBoard extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(LeaderBoard.this);
+            pDialog.setMessage("Loading Comments...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+        @Override
+        protected Boolean doInBackground(Void... arg0) {
+            //we will develop this method in version 2
+            updateJSONdata();
+            return null;
+
+        }
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            pDialog.dismiss();
+            //we will develop this method in version 2
+            updateList();
+        }
     }
 
     class viewHolder{
