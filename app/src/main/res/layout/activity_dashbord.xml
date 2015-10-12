@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/baka">
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:id="@+id/imgProfile"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/rel"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_user_profile"
+            android:clickable="true"
+            android:onClick="imgProfile" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rel"
+            android:paddingBottom="10dp"
+            android:background="#000000"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:id="@+id/dashboard"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold"
+                android:textColor="#FF770F"
+                android:textSize="25dp"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:padding="7dp"
+            android:id="@+id/rePlay"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/imgProfile"
+            android:clickable="true"
+            android:onClick="rePlay">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/image2"
+                android:src="@drawable/ic_joystick"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/play_txt"
+                android:textColor="#2EB9FF"
+                android:layout_toRightOf="@+id/image2"
+                android:textStyle="bold"
+                android:paddingTop="24dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="105dp"
+                android:textSize="17dp"
+                android:text="Play"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:padding="7dp"
+            android:id="@+id/reLeaderboard"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/rePlay"
+            android:clickable="true"
+            android:onClick="reLeaderboard">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/image3"
+                android:src="@drawable/ic_leaderboard"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2EB9FF"
+                android:layout_toRightOf="@+id/image3"
+                android:id="@+id/leaderboard_txt"
+                android:textStyle="bold"
+                android:paddingTop="24dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="45dp"
+                android:textSize="17dp"
+                android:text="Leaderboard"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/reJRBank"
+            android:padding="7dp"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/reLeaderboard"
+            android:clickable="true"
+            android:onClick="reBank">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+
+                android:layout_alignParentLeft="true"
+                android:id="@+id/image4"
+                android:src="@drawable/ic_deposit"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2EB9FF"
+                android:id="@+id/jrBank_txt"
+                android:layout_toRightOf="@+id/image4"
+                android:textStyle="bold"
+                android:paddingTop="24dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="75dp"
+                android:textSize="17dp"
+                android:text="JR Bank"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="2dp"
+            android:id="@+id/reRequest"
+            android:layout_centerHorizontal="true"
+            android:padding="7dp"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/reJRBank"
+            android:clickable="true"
+            android:onClick="reRequest">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/image5"
+                android:src="@drawable/ic_donate"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2EB9FF"
+                android:layout_toRightOf="@+id/image5"
+                android:id="@+id/bRequest_txt"
+                android:textStyle="bold"
+                android:paddingTop="24dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="65dp"
+                android:textSize="17dp"
+                android:text="B Request"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

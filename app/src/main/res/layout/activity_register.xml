@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/baka">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:id="@+id/profile_reg"
+            android:src="@drawable/ic_user_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/username_reg"
+            android:layout_below="@+id/profile_reg"
+            android:hint="Username"
+            android:textColorHint="#2EB9FF"
+            android:textColor="#2EB9FF"
+            android:background="@drawable/group_top"
+            android:padding="7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="60dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username_reg"
+            android:id="@+id/name_reg"
+            android:hint="Name"
+            android:textColor="#2EB9FF"
+            android:textColorHint="#2EB9FF"
+            android:background="@drawable/group_top"
+            android:padding="7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_reg"
+            android:id="@+id/Surname_reg"
+            android:background="@drawable/group_top"
+            android:padding="7dp"
+            android:hint="Surname"
+            android:textColor="#2EB9FF"
+            android:textColorHint="#2EB9FF"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Surname_reg"
+            android:id="@+id/Password_reg"
+            android:background="@drawable/group_top"
+            android:padding="7dp"
+            android:hint="Password"
+            android:textColor="#2EB9FF"
+            android:textColorHint="#2EB9FF"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Password_reg"
+            android:id="@+id/Age_reg"
+            android:hint="Age"
+            android:textColorHint="#2EB9FF"
+            android:textColor="#2EB9FF"
+            android:background="@drawable/group_top"
+            android:layout_marginBottom="5dp"
+            android:padding="7dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Age_reg"
+            android:id="@+id/gender_reg"
+            android:hint="Gender"
+            android:textColorHint="#2EB9FF"
+            android:textColor="#2EB9FF"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/group_top"
+            android:padding="7dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gender_reg"
+            android:id="@+id/childsCell"
+            android:hint="Child\'s Mobile Number "
+            android:textColorHint="#2EB9FF"
+            android:textColor="#2EB9FF"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/group_top"
+            android:padding="7dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/childsCell"
+            android:id="@+id/parentCell"
+            android:hint="Parent Mobile Number"
+            android:textColorHint="#2EB9FF"
+            android:textColor="#2EB9FF"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/group_top"
+            android:padding="7dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/parentCell"
+            android:id="@+id/registerButton"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_buttons"
+            android:textColor="#FFFFFF"
+            android:text="Register"/>
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/baka">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="150dp"
+        android:id="@+id/JRBank">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:id="@+id/jr_relativeL1"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/amount_txt"
+                android:text="Amount : B"
+                android:textColor="#2EB9FF"
+                android:paddingLeft="7dp"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:text="Username"
+                android:paddingRight="7dp"
+                android:textColor="#2EB9FF"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtJRBankAmount"
+                android:layout_toRightOf="@+id/amount_txt"
+                android:layout_centerVertical="true"
+                android:textColor="#2EB9FF"
+                android:paddingLeft="1dp"
+                android:text="300"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="7dp"
+            android:id="@+id/reDeposit"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/jr_relativeL1"
+            android:clickable="true"
+            android:onClick="reDeposited">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/deposit"
+                android:src="@drawable/ic_depo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/txt_deposit"
+                android:textColor="#2EB9FF"
+                android:layout_toRightOf="@+id/deposit"
+                android:textStyle="bold"
+                android:paddingTop="9dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="64dp"
+                android:textSize="17dp"
+                android:text="Deposit" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:padding="7dp"
+            android:id="@+id/reBorrow"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/reDeposit"
+            android:clickable="true"
+            android:onClick="reBorrowed">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/borrow"
+                android:src="@drawable/ic_borrow_me"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2EB9FF"
+                android:id="@+id/borrow_txt"
+                android:layout_toRightOf="@+id/borrow"
+                android:textStyle="bold"
+                android:paddingTop="9dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="65dp"
+                android:textSize="17dp"
+                android:text="Borrow"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:padding="7dp"
+            android:id="@+id/reRequest"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/reBorrow"
+            android:clickable="true"
+            android:onClick="reRequest">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/request"
+                android:src="@drawable/ic_request_to"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2EB9FF"
+                android:id = "@+id/request_txt"
+                android:layout_toRightOf="@+id/request"
+                android:textStyle="bold"
+                android:paddingTop="9dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="60dp"
+                android:textSize="17dp"
+                android:text="Request"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            android:padding="7dp"
+            android:id="@+id/reStatement"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/reRequest"
+            android:clickable="true"
+            android:onClick="reStatement">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/statement"
+                android:src="@drawable/ic_statement"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2EB9FF"
+                android:id = "@+id/statement_txt"
+                android:layout_toRightOf="@+id/statement"
+                android:textStyle="bold"
+                android:paddingTop="9dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="40dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="17dp"
+                android:text="Statement"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:padding="7dp"
+            android:id="@+id/reSendToBank"
+            android:background="@drawable/dashbuttons_color"
+            android:layout_below="@+id/reStatement"
+            android:onClick="reSendToBank"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/sendToBank"
+                android:src="@drawable/ic_lock"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2EB9FF"
+                android:id="@+id/sendToBank_txt"
+                android:layout_toRightOf="@+id/sendToBank"
+                android:textStyle="bold"
+                android:paddingTop="9dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="18dp"
+                android:textSize="17dp"
+                android:text="Send to Bank"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

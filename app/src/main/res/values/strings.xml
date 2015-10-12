@@ -1,0 +1,97 @@
+<resources>
+    <string name="app_name">Splash</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="intro">Dodge obstacles and get to the bank in the least time, with coins in your backpack. (Education and Entertainment).</string>
+    <string name="title_activity_login">Login</string>
+
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_junior_bank">JuniorBank</string>
+    <string name="Dashboar_Str">Dashboard</string>
+    <string name="title_activity_play">PlayActivity</string>
+    <string name="title_activity_leaderboard">LeaderboardActivity</string>
+    <string name="title_activity_borrow_dialog">BorrowDialogAct</string>
+    <string name="hint_enter_name">Enter Name</string>
+    <string name="hint_enter_amount">Enter Amount</string>
+    <string name="hint_enter_deposit">Enter Deposite</string>
+    <string name="title_activity_gadget">GadgetActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_barclions_request">BarclionsRequest</string>
+    <string name="b_message">Help your friends with some Barclions</string>
+    <string name="hint_enter_cell">Enter Cell number</string>
+    <string-array name="rdo_buttons">
+        <item>rdoMale</item>
+        <item>rdoFemale</item>
+    </string-array>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="title_activity_leaderboard_custom_row">LeaderboardCustomRowActivity</string>
+    <string name="title_activity_statement">StatementActivity</string>
+    <string name="title_activity_statement_custom_row">StatementCustomRowActivity</string>
+
+    <string-array name="Gadgets">
+        <item>Jetpack</item>
+        <item>Gun</item>
+        <item>Missile</item>
+        <item>Condom</item>
+        <item>Dildo</item>
+    </string-array>
+
+    <string-array name="Lend">
+        <item>Ed</item>
+        <item>Brandon</item>
+        <item>Steve</item>
+        <item>Gary</item>
+        <item>James</item>
+    </string-array>
+
+    <string-array name="Owe">
+        <item>Judith</item>
+        <item>Hlumisa</item>
+        <item>Vuyu</item>
+        <item>Avhasei</item>
+        <item>Job</item>
+    </string-array>
+
+    <string-array name="Price">
+        <item>B2.5</item>
+        <item>B3.00</item>
+        <item>B10.00</item>
+        <item>B25.00</item>
+        <item>B50.00</item>
+    </string-array>
+
+    <string-array name="Date">
+        <item>12/08/15</item>
+        <item>15/08/15</item>
+        <item>13/06/15</item>
+        <item>Today</item>
+        <item>Yesterday</item>
+    </string-array>
+
+    <string-array name="rank_number">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="rank_names">
+        <item>Dav</item>
+        <item>Job</item>
+        <item>Roger</item>
+        <item>Hulisani</item>
+        <item>Tebogo</item>
+    </string-array>
+
+    <string-array name="rank_time">
+        <item>03:22</item>
+        <item>03:45</item>
+        <item>05:02</item>
+        <item>05:02</item>
+        <item>05:04</item>
+    </string-array>
+    <string name="title_activity_dashbord">Dashbord</string>
+    <string name="title_activity_leader_board">LeaderBoard</string>
+</resources>

@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.academy_intern.torpedo.BorrowDialogAct"
+    android:id="@+id/borrowDialogue">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtNameBorrow"
+        android:hint="@string/hint_enter_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/txtAmount"
+        android:layout_alignStart="@+id/txtAmount" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/txtAmount"
+        android:hint="@string/hint_enter_amount"
+        android:layout_below="@+id/txtNameBorrow"
+        android:layout_centerHorizontal="true"
+        android:numeric="decimal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Borrow"
+        android:id="@+id/btnBorrow"
+        android:layout_below="@+id/txtAmount"
+        android:layout_alignRight="@+id/txtAmount"
+        android:layout_alignEnd="@+id/txtAmount" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/btnCancelBorrow"
+        android:layout_below="@+id/txtAmount"
+        android:layout_alignLeft="@+id/txtAmount"
+        android:layout_alignStart="@+id/txtAmount" />
+
+</RelativeLayout>
