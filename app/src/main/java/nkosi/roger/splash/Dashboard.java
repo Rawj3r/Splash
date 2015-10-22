@@ -113,9 +113,9 @@ public class Dashboard extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }*/
     //set play activity
-   /* public void rePlay (View v){
-        startActivity(new Intent(Dashboard.this,PlayActivity.class));
-    }*/
+    public void rePlay (View v){
+        startActivity(new Intent(Dashboard.this, Gadget.class));
+    }
 
     //set leaderboard activity
     public void reLeaderboard (View v){
@@ -126,9 +126,9 @@ public class Dashboard extends AppCompatActivity {
         startActivity(new Intent(Dashboard.this, JuniorBank.class));
     }
     //set Request activity
-    //public void reRequest (View v){
-      //  startActivity(new Intent(Dashboard.this, BarclionsRequest.class));
-    //}*/
+    public void reRequest (View v){
+        startActivity(new Intent(Dashboard.this, Request.class));
+    }
 
     public void imgProfile(View v){
         startActivity(new Intent(Dashboard.this, Profile.class));

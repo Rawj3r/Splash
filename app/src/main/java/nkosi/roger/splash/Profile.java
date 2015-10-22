@@ -51,13 +51,7 @@ public class Profile extends AppCompatActivity {
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
 
-    //php login script
-
-    //localhost :
-    //testing on your device
-    //put your local ip instead,  on windows, run CMD > ipconfig
-    //or in mac's terminal type ifconfig and look for the ip under en0 or en1
-    // private static final String LOGIN_URL = "http://xxx.xxx.x.x:1234/webservice/register.php";
+    //php login scrip
 
     //testing on Emulator:
     private static final String LOGIN_URL = "http://10.0.2.2/roger/updateCredintials.php";
@@ -107,7 +101,7 @@ public class Profile extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Profile.this);
-            pDialog.setMessage("Creating User...");
+            pDialog.setMessage("Loading...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
         }

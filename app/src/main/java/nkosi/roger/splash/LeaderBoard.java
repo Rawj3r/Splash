@@ -9,7 +9,6 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +55,7 @@ public class LeaderBoard extends ListActivity {
 
     //An array of all of user's bank statement
     private JSONArray leaderData = null;
-    //manages all of our comments in a list.
+    //manages all of our data in a list.
     private ArrayList<HashMap<String, String>> leaderList;
 
     //ids
@@ -66,13 +65,12 @@ public class LeaderBoard extends ListActivity {
     private static final String USER_NAME = "name";
     private static final String PROGRESS = "progress";
     private static final String TAG_BALANCE = "Balance";
+    private static final String USER_ID = "user_id";
 
     ProgressDialog pDialog;
 
 
     //String username, name, lastName, password, age, gender, kidCellNumber, parentCellNumber;
-
-    private static final String LOGIN_URL = "http://10.0.2.2/roger/leaderboard.php";
 
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
@@ -169,12 +167,14 @@ public class LeaderBoard extends ListActivity {
         leaderList = new ArrayList<HashMap<String, String>>();
         // Bro, it's time to power up the J parser
         JSONParser jParser = new JSONParser();
-        // Feed the beast our comments url, and it spits us
-        //back a JSON object.  Boo-yeah Jerome.
+        // Feed the beast our leaderboard url, and it spits us
+        //back a JSON object.
         JSONObject json = jParser.getJSONFromUrl(get());
         //when parsing JSON stuff, we should probably
         //try to catch any exceptions:
         try {
+
+            String pos = null;
 
             leaderData = json.getJSONArray(TAG_GET);
 
@@ -182,23 +182,37 @@ public class LeaderBoard extends ListActivity {
             for (int i = 0; i < leaderData.length(); i++){
                 JSONObject c = leaderData.getJSONObject(i);
 
+                System.out.println(i);
+
+
 
                 //gets the content of each tag
-
+                String user_id = c.getString(USER_ID);
                 String name = c.getString(USER_NAME);
                 String progress = c.getString(PROGRESS);
+
+
+                //System.out.println(user_id);
 
                 // creating new HashMap
                 HashMap<String, String> map = new HashMap<String, String>();
 
+                String row = Integer.toString(i);
+                //map.put("row", row);
+                //map.put(USER_ID, user_id);
                 map.put(USER_NAME, name);
                 map.put(PROGRESS, progress);
+
                 //map.put(TAG_P_DATE, pDate);
-
-
 
                 // adding HashList to ArrayList
                 leaderList.add(map);
+
+              /*  if (leaderList.add(map)){
+                    count++;w
+                    System.out.println(count);
+                } */
+
 
                 //Our JSON data is up to date same with our array list
             }
@@ -241,7 +255,7 @@ public class LeaderBoard extends ListActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(LeaderBoard.this);
-            pDialog.setMessage("Loading Comments...");
+            pDialog.setMessage("Loading ...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();

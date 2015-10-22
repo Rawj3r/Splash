@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/baka"
+    tools:context="com.example.academy_intern.torpedo.GadgetActivity"
+    android:id="@+id/GadgetStore">
+    ​
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:id="@+id/btnPlayGame"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    ​
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imgJetPack"
+        android:src="@drawable/sport74"
+        android:layout_marginTop="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:onClick="JetPack" />
+    ​
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imgClock"
+        android:src="@drawable/clock96"
+        android:layout_alignTop="@+id/imgJetPack"
+        android:layout_toLeftOf="@+id/btnPlayGame"
+        android:layout_toStartOf="@+id/btnPlayGame"
+        android:onClick="Clock" />
+    ​
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Number Of JetPacks:5"
+        android:id="@+id/txtNumOfJetpacks"
+        android:layout_below="@+id/txtJetPackPrice"
+        android:layout_alignLeft="@+id/txtJetPackPrice"
+        android:layout_alignStart="@+id/txtJetPackPrice"
+        android:textColor="#ffffff" />
+    ​
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Number Of Clocks:5"
+        android:id="@+id/txtNumOfClocks"
+        android:layout_alignTop="@+id/txtNumOfJetpacks"
+        android:layout_alignLeft="@+id/txtClockPrice"
+        android:layout_alignStart="@+id/txtClockPrice"
+        android:textColor="#ffffff" />
+    ​
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Price:B7.10"
+        android:id="@+id/txtJetPackPrice"
+        android:layout_below="@+id/imgJetPack"
+        android:layout_alignLeft="@+id/imgJetPack"
+        android:layout_alignStart="@+id/imgJetPack"
+        android:textColor="#ffffff" />
+    ​
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Price:B5.25"
+        android:id="@+id/txtClockPrice"
+        android:layout_below="@+id/imgClock"
+        android:layout_alignLeft="@+id/imgClock"
+        android:layout_alignStart="@+id/imgClock"
+        android:textColor="#ffffff" />
+    ​
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Balance:B15"
+        android:id="@+id/txtBalance"
+        android:layout_toLeftOf="@+id/btnPlayGame"
+        android:layout_toStartOf="@+id/btnPlayGame"
+        android:layout_above="@+id/imgClock"
+        android:textColor="#ffffff" />
+    ​
+</RelativeLayout>

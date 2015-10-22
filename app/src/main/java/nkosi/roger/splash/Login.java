@@ -23,6 +23,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,6 +96,9 @@ public class Login extends AppCompatActivity implements  View.OnClickListener {
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.btnSignIn:
+               /* try{
+                    File saveUser = new File("/sdcard/saveUser.txt");
+                }*/
                 new AttemptLogin().execute();
                 break;
             case R.id.btnsignUp:

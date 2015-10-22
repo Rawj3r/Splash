@@ -46,6 +46,7 @@ public class JuniorBank extends ActionBarActivity {
     //String username, name, lastName, password, age, gender, kidCellNumber, parentCellNumber;
 
     private static final String LOGIN_URL = "http://10.0.2.2/roger/bank.php";
+    private static final String REQUEST = "http://10.0.2.2/roger/request.php";
 
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
@@ -111,7 +112,7 @@ public class JuniorBank extends ActionBarActivity {
                 Log.d("Single Product Details", json.toString());
 
                 success = json.getInt(TAG_SUCCESS);
-                if (success==1){
+                if (success == 1){
                     //successfully received logged in user balance
                     JSONArray balObject = json.getJSONArray(TAG_GET);
                     JSONObject bal = balObject.getJSONObject(0);
@@ -319,17 +320,63 @@ public class JuniorBank extends ActionBarActivity {
         btnRequest = (Button)dialogCustom.findViewById(R.id.btnRequest);
         dialogCustom.setCanceledOnTouchOutside(false);
 
+        class MakeRequest extends AsyncTask<String, String, String>{
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                pDialog = new ProgressDialog(JuniorBank.this);
+                pDialog.setMessage("Borrowing...");
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(true);
+            }
+
+            protected String doInBackground(String... args){
+                int success = 1;
+                String amount = txtAmount.getText().toString();
+                String fusername = txtName.getText().toString();
+
+                try {
+                    SharedPreferences sp = getSharedPreferences("Storedata", Context.MODE_PRIVATE);
+                    String username = sp.getString("username", "");
+                    sp.getString("username", null);
+
+                    // Building Parameters
+                    List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+                    params.add(new BasicNameValuePair("amnt", amount));
+                    params.add(new BasicNameValuePair("username", username));
+                    params.add(new BasicNameValuePair("fusername", fusername));
+
+                    android.util.Log.d("request!", "starting");
+                    JSONObject postInputData = jsonParser.makeHttpRequest(REQUEST, "GET", params);
+
+                    // full json response
+                    android.util.Log.d("Depositing . . .", postInputData.toString());
+
+                    // json success element
+                    success = postInputData.getInt(TAG_SUCCESS);
+                    if (success == 1){
+                        android.util.Log.d("Success!", postInputData.toString());
+                        finish();
+                        return postInputData.getString(TAG_MESSAGE);
+                    }else{
+                        android.util.Log.d("Failed", postInputData.getString(TAG_MESSAGE));
+                        return postInputData.getString(TAG_MESSAGE);
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+
         btnRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                try {
-                    uNameRequest = txtName.getText().toString();
-                    amountRequest = Double.parseDouble(txtAmount.getText().toString());
-                    Toast.makeText(JuniorBank.this, "Success", Toast.LENGTH_SHORT).show();
+                if (txtAmount != null && txtName != null){
+                    new MakeRequest().execute();
+                    Toast.makeText(JuniorBank.this, "Sent", Toast.LENGTH_SHORT).show();
                     dialogCustom.dismiss();
-                } catch (NullPointerException ex) {
-                    Toast.makeText(JuniorBank.this, "Enter values", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -92,6 +92,14 @@
         <item>05:02</item>
         <item>05:04</item>
     </string-array>
+    <string-array name="name_amount_request">
+        <item>Gael B12</item>
+        <item>Avhas B10</item>
+        <item>Roger B20</item>
+        <item>David B25</item>
+        <item>Steve B50</item>
+    </string-array>
     <string name="title_activity_dashbord">Dashbord</string>
     <string name="title_activity_leader_board">LeaderBoard</string>
+    <string name="title_activity_request">Request</string>
 </resources>

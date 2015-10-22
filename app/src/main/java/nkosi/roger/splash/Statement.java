@@ -1,6 +1,7 @@
 package nkosi.roger.splash;
 
 import android.app.Activity;
+import android.app.LauncherActivity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -23,6 +24,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -175,35 +177,30 @@ public class Statement extends ListActivity {
         //could do something.  However, we will choose
         //to do nothing...
 
-        ListView lv = getListView();
+        final ListView lv = getListView();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                // This method is triggered if an item is click within our
-                // list. For our example we won't be using this, but
-                // it is useful to know in real life applications.
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             }
         });
     }
+
 
     public class LoadComments extends AsyncTask<Void, Void, Boolean>{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Statement.this);
-            pDialog.setMessage("Loading Comments...");
+            pDialog.setMessage("Loading Your Statement Data...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
         }
         @Override
         protected Boolean doInBackground(Void... arg0) {
-            //we will develop this method in version 2
+
             updateJSONdata();
             return null;
 
