@@ -24,6 +24,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,10 +99,8 @@ public class Login extends AppCompatActivity implements  View.OnClickListener {
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.btnSignIn:
-               /* try{
-                    File saveUser = new File("/sdcard/saveUser.txt");
-                }*/
                 new AttemptLogin().execute();
+                saveData();
                 break;
             case R.id.btnsignUp:
                 Intent signUpActivity = new Intent(this, Register.class);
@@ -108,6 +109,25 @@ public class Login extends AppCompatActivity implements  View.OnClickListener {
 
             default:
                 break;
+        }
+    }
+
+    public void saveData(){
+        try{
+            File saveUsername = new File("/sdcard/users.txt");
+            saveUsername.createNewFile();
+
+            FileOutputStream fileOutputStream = new FileOutputStream(saveUsername);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+
+            outputStreamWriter.append(username.getText());
+            outputStreamWriter.close();
+            fileOutputStream.close();
+
+            Toast.makeText(getBaseContext(), "Success", Toast.LENGTH_SHORT).show();
+        }catch (IOException e){
+            //e.printStackTrace();
+            Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
