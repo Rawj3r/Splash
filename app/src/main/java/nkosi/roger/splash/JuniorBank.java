@@ -45,8 +45,8 @@ public class JuniorBank extends ActionBarActivity {
 
     //String username, name, lastName, password, age, gender, kidCellNumber, parentCellNumber;
 
-    private static final String LOGIN_URL = "http://10.0.2.2/roger/bank.php";
-    private static final String REQUEST = "http://10.0.2.2/roger/request.php";
+    private static final String LOGIN_URL = "http://10.5.0.139/roger/bank.php";
+    private static final String REQUEST = "http://10.5.0.139/roger/request.php";
 
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
@@ -203,7 +203,7 @@ public class JuniorBank extends ActionBarActivity {
 
                     // Building Parameters
                     List<NameValuePair> params = new ArrayList<NameValuePair>();
-                    //String username, name, lastName, password, age, gender, kidCellNumber, parentCellNumer;
+
                     params.add(new BasicNameValuePair("deposit", deposit));
                     params.add(new BasicNameValuePair("username", username));
 
@@ -211,7 +211,7 @@ public class JuniorBank extends ActionBarActivity {
                     android.util.Log.d("request!", "starting");
                     //Posting user data to script
                     JSONObject postInputData = jsonParser.makeHttpRequest(LOGIN_URL, "POST", params);
-                    System.out.println("test: " + postInputData);
+                    //System.out.println("test: " + postInputData);
 
                     // full json response
                     android.util.Log.d("Depositing . . .", postInputData.toString());

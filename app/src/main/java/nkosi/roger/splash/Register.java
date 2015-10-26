@@ -44,7 +44,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     // private static final String LOGIN_URL = "http://xxx.xxx.x.x:1234/webservice/register.php";
 
     //testing on Emulator:
-    private static final String LOGIN_URL = "http://10.0.2.2/roger/register.php";
+    private static final String LOGIN_URL = "http://10.5.0.139/roger/register.php";
 
     //testing from a real server:
     //private static final String LOGIN_URL = "http://www.empirestate.co.za/webservice/register.php";

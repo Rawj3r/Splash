@@ -1,6 +1,10 @@
 package nkosi.roger.splash;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,8 +14,27 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Gadget extends AppCompatActivity {
     TextView txtBalance, txtNumOfJetpacks, txtNumOfClocks;
+
+    ProgressDialog pDialog;
+
+    private static final String GADGET_URL = "http://10.5.0.139/roger/gadget.php";
+    JSONParser jsonParser = new JSONParser();
+
+    //ids
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
+    private static final String TAG_GET = "data";
+    private static final String TAG_BALANCE = "Balance";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +64,10 @@ public class Gadget extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     *Created by: Avhasei
-     *Date:17 September 2015
-     *Task: pop up the dialog screen for the borrow when the borrow button is pressed
-     * @param view responsible for handling an event
-     */
+
     public void JetPack(View view){
         final TextView txtCalculationJetpack;
-        Button btnPurchaseJetGadget,btnCancelJetGadgetPurchase;
+        Button btnPurchaseJetGadget, btnCancelJetGadgetPurchase;
         final Dialog dialogCust = new Dialog(this);
         dialogCust.setContentView(R.layout.activity_gadget_dialogjetpack);
 
@@ -60,11 +78,64 @@ public class Gadget extends AppCompatActivity {
         btnCancelJetGadgetPurchase=(Button)dialogCust.findViewById(R.id.btnCancelJetGadgetPurchase);
         dialogCust.setCanceledOnTouchOutside(false);
 
-        txtCalculationJetpack.setText("B29 - B2 = B27");
+        class PJetPack extends AsyncTask<String, String, String>{
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                pDialog = new ProgressDialog(Gadget.this);
+                pDialog.setMessage("Purchasing Jet Pack");
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(true);
+            }
+
+            protected String doInBackground(String... args){
+                int success = 1;
+                String numJetPacks = "1";
+                String amountJet = "7.10";
+                String gadgetId = "4";
+
+                try{
+                    SharedPreferences sp = getSharedPreferences("Storedata", Context.MODE_PRIVATE);
+                    String username = sp.getString("username", "");
+                    sp.getString("username", null);
+
+                    // Building Parameters
+                    List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+                    params.add(new BasicNameValuePair("unit_", numJetPacks));
+                    params.add(new BasicNameValuePair("username", username));
+                    params.add(new BasicNameValuePair("amount_", amountJet));
+                    params.add(new BasicNameValuePair("g_id", gadgetId));
+
+                    android.util.Log.d("Purchasing JetPack!", "starting");
+                    //Posting user data to script
+                    JSONObject postInputData = jsonParser.makeHttpRequest(GADGET_URL, "GET", params);
+
+                    // full json response
+                    android.util.Log.d("Purchasing JetPack!", postInputData.toString());
+
+                    // json success element
+                    success = postInputData.getInt(TAG_SUCCESS);
+                    if (success == 1) {
+                        android.util.Log.d("Jet Purchase Success", postInputData.toString());
+                        finish();
+                        return postInputData.getString(TAG_MESSAGE);
+                    } else {
+                        android.util.Log.d("Failure!", postInputData.getString(TAG_MESSAGE));
+                        return postInputData.getString(TAG_MESSAGE);
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+
         btnPurchaseJetGadget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                new PJetPack().execute();
                 Toast.makeText(Gadget.this, "Success", Toast.LENGTH_SHORT).show();
                 dialogCust.dismiss();
             }

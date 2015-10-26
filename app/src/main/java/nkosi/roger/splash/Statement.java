@@ -54,9 +54,8 @@ public class Statement extends ListActivity {
 
     //testing on Emulator:
     //private static final String GET_STATE = "http://10.0.2.2/roger/state.php?category=gadget&username=test";
-    private static final String GET_STATE = "http://10.0.2.2/roger/state.php";
-    //testing from a real server:
-    //private static final String READ_COMMENTS_URL = "http://www.mybringback.com/webservice/comments.php";
+    private static final String GET_STATE = "http://10.5.0.139/roger/state.php";
+
 
     //JSON IDS:
     private static final String TAG_SUCCESS = "success";
@@ -85,7 +84,7 @@ public class Statement extends ListActivity {
         String username = sp.getString("username", "");
         sp.getString("username", null);
 
-        final String GET_STATES = "http://10.0.2.2/roger/state.php?category=gadget&username="+username;
+        final String GET_STATES = "http://10.5.0.139/roger/state.php?category=gadget&username="+username;
         // Building Parameters
         List<NameValuePair> pairs = new ArrayList<NameValuePair>();
         pairs.add(new BasicNameValuePair("username", username));

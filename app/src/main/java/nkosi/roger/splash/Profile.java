@@ -54,7 +54,7 @@ public class Profile extends AppCompatActivity {
     //php login scrip
 
     //testing on Emulator:
-    private static final String LOGIN_URL = "http://10.0.2.2/roger/updateCredintials.php";
+    private static final String LOGIN_URL = "http://10.5.0.139/roger/updateCredintials.php";
 
     //testing from a real server:
     //private static final String LOGIN_URL = "http://www.empirestate.co.za/webservice/register.php";

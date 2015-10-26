@@ -4,7 +4,7 @@ package nkosi.roger.splash;
  * Created by Academy_Intern on 15/09/15.
  */
 
-        import java.io.BufferedReader;
+import java.io.BufferedReader;
         import java.io.IOException;
         import java.io.InputStream;
         import java.io.InputStreamReader;
