@@ -1,41 +1,21 @@
 package nkosi.roger.splash;
 
-import android.app.Activity;
-import android.app.LauncherActivity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,15 +26,10 @@ public class Statement extends ListActivity {
     // Progress Dialog
     private ProgressDialog pDialog;
 
-    //localhost :
-    //testing on your device
-    //put your local ip instead,  on windows, run CMD > ipconfig
-    //or in mac's terminal type ifconfig and look for the ip under en0 or en1
-    // private static final String READ_COMMENTS_URL = "http://xxx.xxx.x.x:1234/webservice/comments.php";
-
+    //localhost
     //testing on Emulator:
     //private static final String GET_STATE = "http://10.0.2.2/roger/state.php?category=gadget&username=test";
-    private static final String GET_STATE = "http://10.5.0.139/roger/state.php";
+    //private static final String GET_STATE = "http://10.5.0.139/roger/state.php";
 
 
     //JSON IDS:

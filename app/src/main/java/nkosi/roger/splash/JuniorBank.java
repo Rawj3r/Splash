@@ -46,7 +46,9 @@ public class JuniorBank extends ActionBarActivity {
     //String username, name, lastName, password, age, gender, kidCellNumber, parentCellNumber;
 
     private static final String LOGIN_URL = "http://10.5.0.139/roger/bank.php";
+   // private static final String LOGIN_URL = "http://10.0.2.2/roger/bank.php";
     private static final String REQUEST = "http://10.5.0.139/roger/request.php";
+   // private static final String REQUEST = "http://10.0.2.2/roger/request/php";
 
     // JSON parser class
     JSONParser jsonParser = new JSONParser();

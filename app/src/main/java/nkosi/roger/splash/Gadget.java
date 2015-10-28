@@ -28,6 +28,7 @@ public class Gadget extends AppCompatActivity {
     ProgressDialog pDialog;
 
     private static final String GADGET_URL = "http://10.5.0.139/roger/gadget.php";
+    //private static final String GADGET_URL = "http://10.0.2.2/roger/gadget.php";
     JSONParser jsonParser = new JSONParser();
 
     //ids
@@ -66,14 +67,12 @@ public class Gadget extends AppCompatActivity {
 
 
     public void JetPack(View view){
-        final TextView txtCalculationJetpack;
         Button btnPurchaseJetGadget, btnCancelJetGadgetPurchase;
         final Dialog dialogCust = new Dialog(this);
         dialogCust.setContentView(R.layout.activity_gadget_dialogjetpack);
 
         dialogCust.setTitle("Gadget Purchase");
         txtNumOfJetpacks = (TextView)dialogCust.findViewById(R.id.txtNumOfJetpacks);
-        txtCalculationJetpack = (TextView)dialogCust.findViewById(R.id.txtCalculationJetPack);
         btnPurchaseJetGadget = (Button)dialogCust.findViewById(R.id.btnPurchaseJetGadget);
         btnCancelJetGadgetPurchase=(Button)dialogCust.findViewById(R.id.btnCancelJetGadgetPurchase);
         dialogCust.setCanceledOnTouchOutside(false);
@@ -151,12 +150,6 @@ public class Gadget extends AppCompatActivity {
     }
 
 
-    /**
-     *Created by: Avhasei
-     *Date:17 September 2015
-     *Task: pop up the dialog screen for the borrow when the borrow button is pressed
-     * @param view responsible for handling an event
-     */
     public void Clock(View view){
         final TextView txtCalculationClock;
         Button btnPurchaseClockGadget,btnCancelClockGadgetPurchase;
@@ -169,11 +162,67 @@ public class Gadget extends AppCompatActivity {
         btnCancelClockGadgetPurchase=(Button)dialogCust.findViewById(R.id.btnCancelClockGadgetPurchase);
         dialogCust.setCanceledOnTouchOutside(false);
 
-        txtCalculationClock.setText("B29 - B2 = B27");
+
+        class PClock extends AsyncTask<String, String, String>{
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                pDialog = new ProgressDialog(Gadget.this);
+                pDialog.setMessage("Purchasing Clock");
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(true);
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+                int success = 1;
+                String numClocks = "1";
+                String amountClock = "5.25";
+                String gadgetId = "2";
+
+                try {
+
+                    SharedPreferences sp = getSharedPreferences("Storedata", Context.MODE_PRIVATE);
+                    String username = sp.getString("username", "");
+                    sp.getString("username", null);
+
+
+                    // Building Parameters
+                    List<NameValuePair> parameter = new ArrayList<NameValuePair>();
+
+                    parameter.add(new BasicNameValuePair("unit_", numClocks));
+                    parameter.add(new BasicNameValuePair("username", username));
+                    parameter.add(new BasicNameValuePair("amount_", amountClock));
+                    parameter.add(new BasicNameValuePair("g_id", gadgetId));
+
+                    android.util.Log.d("Purchasing JetPack!", "starting");
+                    //Posting user data to script
+                    JSONObject postInputData = jsonParser.makeHttpRequest(GADGET_URL, "GET", parameter);
+
+                    // full json response
+                    android.util.Log.d("Purchasing JetPack!", postInputData.toString());
+
+                    // json success element
+                    success = postInputData.getInt(TAG_SUCCESS);
+
+                    if (success == 1) {
+                        android.util.Log.d("Jet Purchase Success", postInputData.toString());
+                        finish();
+                        return postInputData.getString(TAG_MESSAGE);
+                    } else {
+                        android.util.Log.d("Failure!", postInputData.getString(TAG_MESSAGE));
+                        return postInputData.getString(TAG_MESSAGE);
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
         btnPurchaseClockGadget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                new PClock().execute();
                 Toast.makeText(Gadget.this, "Success", Toast.LENGTH_SHORT).show();
                 dialogCust.dismiss();
             }

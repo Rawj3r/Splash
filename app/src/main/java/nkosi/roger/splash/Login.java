@@ -129,7 +129,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener {
         /**
          * Before starting background thread Show Progress Dialog
          */
-        boolean failure = false;
+        //boolean failure = false;
 
         @Override
         protected void onPreExecute() {

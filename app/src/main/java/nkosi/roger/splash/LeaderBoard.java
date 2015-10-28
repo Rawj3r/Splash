@@ -136,6 +136,7 @@ public class LeaderBoard extends ListActivity {
         sp.getString("username", null);
 
         final String GET_BOARD = "http://10.5.0.139/roger/leaderboard.php?username="+username;
+        //final String GET_BOARD = "http://10.0.2.2/roger/leaderboard.php?username="+username;
         // Building Parameters
         List<NameValuePair> pairs = new ArrayList<NameValuePair>();
         pairs.add(new BasicNameValuePair("username", username));
